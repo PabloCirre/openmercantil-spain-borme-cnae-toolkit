@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protocolo Técnico de Verificación CIF, Solvencia B2B, CNAE y PLACSP en España (2026) · OpenMercantil</title>
+  <meta name="description" content="Dossier técnico abierto sobre validación algorítmica de CIF/NIF (RD 1065/2007), riesgo comercial B2B a 60 días, Verifactu (RD 254/2025) y umbrales LCSP en PLACSP y BDNS.">
+  <link rel="canonical" href="https://pablocirre.github.io/openmercantil-spain-borme-cnae-toolkit/">
+  <style>
+    body { font-family: Georgia, 'Times New Roman', serif; background: #faf7f0; color: #1a1410; margin: 0; line-height: 1.68; }
+    main { max-width: 920px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    h1, h2 { line-height: 1.2; color: #1a1410; }
+    h1 { font-size: 2.1rem; border-bottom: 3px solid #8f0020; padding-bottom: .75rem; }
+    h2 { font-size: 1.4rem; margin-top: 2.2rem; }
+    .kicker { font-family: monospace; text-transform: uppercase; letter-spacing: .08em; color: #8f0020; font-size: .82rem; font-weight: 700; }
+    .tldr { background: #fff8ee; border: 1px solid #e6dfce; border-left: 4px solid #8f0020; padding: 1rem 1.25rem; border-radius: 6px; margin: 1.25rem 0; font-family: system-ui, sans-serif; font-size: .96rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; margin: 1.25rem 0; font-family: system-ui, sans-serif; font-size: .92rem; border: 1px solid #e6dfce; }
+    th { background: #1b1f2b; color: #fff; text-align: left; padding: 10px 12px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #efe8d8; }
+    a { color: #8f0020; font-weight: 600; }
+    img { max-width: 100%; height: auto; border: 1px solid #d8c8b8; border-radius: 8px; margin: 1.25rem 0; }
+    code { font-family: monospace; background: #f1ebe0; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="kicker">Cuaderno Técnico de Datos Abiertos Mercantiles · Edición Noviembre 2026</p>
+  <h1>Arquitectura Documental de Verificación Societaria en España: CIF, Solvencia B2B, Verifactu y Contratación Pública</h1>
+
+  <div class="tldr">
+    <strong>Síntesis ejecutiva:</strong> En el tráfico mercantil español, validar la estructura matemática de un código fiscal (<code>RD 1065/2007</code>) no acredita existencia registral ni capacidad de pago. El protocolo completo cruza cuatro registros públicos: identidad y actos societarios en el <a href="https://openmercantil.es/como-comprobar-cif-empresa">validador de datos CIF y BORME de OpenMercantil</a>, límite de exposición crediticia en el <a href="https://openmercantil.es/comprobar-solvencia-empresa">simulador de solvencia comercial B2B</a>, calendario fiscal en la <a href="https://openmercantil.es/verifactu-empresas-cnae">calculadora de Verifactu por CNAE</a> y solvencia técnica en <a href="https://openmercantil.es/glosario/placsp">licitaciones PLACSP</a> y <a href="https://openmercantil.es/que-es-la-bdns">concesiones BDNS</a>.
+  </div>
+
+  <img src="https://pablocirre.github.io/openmercantil-spain-borme-cnae-toolkit/openmercantil-b2b-due-diligence-2026-2x.png" width="1200" height="675" alt="Concentración sectorial CNAE y matriz normativa de verificación B2B en España 2026">
+
+  <h2>1. Radiografía Cuantitativa del Censo Mercantil Español por Sección CNAE</h2>
+  <p>El análisis de las <strong>1.231.245 sociedades con división CNAE clasificada</strong> a partir del objeto social e inscripciones publicadas en el Boletín Oficial del Registro Mercantil muestra una elevada concentración en cuatro grandes bloques productivos: comercio mayorista y minorista (sección G, 284.610 entidades), tecnologías de la información y comunicaciones (<a href="https://openmercantil.es/cnae/J">sección J</a>, con 265.202 sociedades y fuerte peso del <a href="https://openmercantil.es/cnae/62">CNAE 62 de programación y consultoría informática</a>), construcción e ingeniería civil (sección F, 198.420 sociedades) y actividades profesionales, científicas y técnicas (sección M, 166.190 sociedades).</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Dimensión de Verificación B2B</th>
+        <th>Norma Reguladora (BOE)</th>
+        <th>Indicador Crítico a Revisar</th>
+        <th>Herramienta Pública de Consulta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Identidad Fiscal y Forma Societaria</strong></td>
+        <td>RD 1065/2007 · Art. 21 C.Com.</td>
+        <td>Letra inicial (A/B/F/G/U/W), dígito de control y hoja activa</td>
+        <td><a href="https://openmercantil.es/como-comprobar-cif-empresa">Comprobar datos CIF gratis</a></td>
+      </tr>
+      <tr>
+        <td><strong>Riesgo Comercial a 30 / 60 Días</strong></td>
+        <td>Ley 3/2004 de Morosidad</td>
+        <td>Antigüedad registral, ampliaciones de capital y continuidad de cuentas</td>
+        <td><a href="https://openmercantil.es/comprobar-solvencia-empresa">Simulador de solvencia de empresas</a></td>
+      </tr>
+      <tr>
+        <td><strong>Software Antifraude y Factura B2B</strong></td>
+        <td>RD 1007/2023 · RD 254/2025 · Ley 18/2022</td>
+        <td>Sujeción a Impuesto sobre Sociedades vs. IRPF o exención SII/TicketBAI</td>
+        <td><a href="https://openmercantil.es/verifactu-empresas-cnae">Calculadora Verifactu empresas CNAE</a></td>
+      </tr>
+      <tr>
+        <td><strong>Nuevas Sociedades y Tejido Regional</strong></td>
+        <td>Sección 1.ª BORME (52 provincias)</td>
+        <td>Capital suscrito inicial, objeto social y demarcación provincial</td>
+        <td><a href="https://openmercantil.es/nuevas-empresas-hoy">Radar nuevas empresas BORME</a> · <a href="https://openmercantil.es/empresas/murcia">Empresas en Murcia</a></td>
+      </tr>
+      <tr>
+        <td><strong>Actividad con el Sector Público</strong></td>
+        <td>Ley 9/2017 LCSP · Ley 38/2003 LGS</td>
+        <td>Adjudicaciones CODICE en PLACSP y ayudas IGAE en BDNS</td>
+        <td><a href="https://openmercantil.es/glosario/placsp">Buscador PLACSP</a> · <a href="https://openmercantil.es/fuentes/bdns">Fuente oficial BDNS</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Librería Abierta en Go (<code>bormecnae</code>) y Reutilización CC BY 4.0</h2>
+  <p>El código fuente completo en Go para validar identificadores fiscales de personas jurídicas españolas y formatear números de IVA intracomunitario (<code>ES + CIF</code> para el censo europeo VIES) está disponible bajo licencia MIT en <a href="https://github.com/PabloCirre/openmercantil-spain-borme-cnae-toolkit">GitHub (PabloCirre/openmercantil-spain-borme-cnae-toolkit)</a> y en el índice oficial <a href="https://pkg.go.dev/github.com/PabloCirre/openmercantil-spain-borme-cnae-toolkit@v1.0.0">pkg.go.dev</a>. Para equipos internacionales de KYB y compliance europeo, consulta también la guía en inglés <a href="https://openmercantil.es/spanish-company-register">Spanish Company Register &amp; EU VAT Verification</a> y el catálogo completo de <a href="https://openmercantil.es/fuentes">fuentes públicas de OpenMercantil</a>.</p>
+</main>
+</body>
+</html>
